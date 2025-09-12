@@ -11,16 +11,6 @@ def encode_features(df, cat_cols):
     return df
 
 def train_model(df, features, cat_cols):
-    """
-    Parameters:
-        df (DataFrame): 输入数据，必须包含 target 列。
-        features (list): 用于训练的特征名。
-        cat_cols (list): 分类特征列名（用于 LabelEncoding）。
-
-    Returns:
-        model: 训练后的 RandomForestClassifier 模型。
-        X_train: 编码后的训练特征。
-    """
     X = encode_features(df[features], cat_cols)
     y = df["target"]
     X_train, _, y_train, _ = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -34,7 +24,6 @@ all_features = num_cols + cat_cols
 real_model, real_X = train_model(real_df, all_features, cat_cols)
 synth_model, synth_X = train_model(synthetic_df, all_features, cat_cols)
 
-# 构建 prompt 的函数
 def build_prompt(similar_patient_id, G, shap_feedback=None):
     prompt = f"Generate a synthetic patient similar to {similar_patient_id}."
 
@@ -45,7 +34,6 @@ def build_prompt(similar_patient_id, G, shap_feedback=None):
             if "diversity_instruction" in shap_feedback:
                 prompt += "\n\n" + shap_feedback["diversity_instruction"]
         else:
-            # 如果 shap_feedback 是字符串，也兼容拼接
             prompt += "\n\n" + str(shap_feedback)
 
     return prompt
@@ -68,7 +56,6 @@ def generate_synthetic_dataset(
     import re
     from sklearn.metrics.pairwise import cosine_similarity
 
-    # fallback：如果外部没传 shap_feedback，则自动生成一轮
     if shap_feedback is None and real_model is not None and real_X is not None:
         synth_model, synth_X = train_model(df_labeled, num_cols + cat_cols, cat_cols)
         comparison_df = compare_shap_importance(real_model, synth_model, real_X, synth_X)
@@ -85,7 +72,6 @@ def generate_synthetic_dataset(
             print(f"[!] Skipped: {patient_id} (no embedding)")
             continue
 
-        # 找到最相似结构的另一个患者
         similar_patients = [n for n in node_embeddings if n.startswith("patient_") and n != patient_id]
         sim_vecs = [node_embeddings[n] for n in similar_patients]
         scores = cosine_similarity(target_vec, sim_vecs)[0]
