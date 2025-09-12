@@ -7,7 +7,7 @@ node2vec = Node2Vec(
     walk_length=10,
     num_walks=100,
     workers=2,
-    p=1, q=1,  # 可以微调探索/采样偏好
+    p=1, q=1, 
     quiet=True
 )
 
