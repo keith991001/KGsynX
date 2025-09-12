@@ -44,7 +44,6 @@ def visualize_subgraph_with_edge_labels(G, patients):
 
     subG = G.subgraph(sub_nodes).copy()
 
-    # 设置颜色：患者蓝，属性值绿，诊断结果红
     color_map = []
     for node in subG.nodes:
         if node.startswith("patient_"):
