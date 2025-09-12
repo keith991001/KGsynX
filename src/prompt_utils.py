@@ -1,5 +1,3 @@
-#用embedding寻找结构最相似的病人
-
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
@@ -35,7 +33,6 @@ def build_prompt(patient_id, G, shap_feedback=None):
         + "\n\nReturn a single JSON object only.\n"
     )
 
-    # 添加 SHAP 反馈
     if shap_feedback:
         prompt += "\nAdditional generation guidelines based on model interpretability:\n"
         prompt += shap_feedback
