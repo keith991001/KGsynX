@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use KGSynX in your research, please cite the paper below."
+title: "KGSynX: Knowledge Graph and Explainable Feedback Guided LLMs for Synthetic Tabular Data Generation"
+authors:
+  - family-names: Yu
+    given-names: Ke
+    affiliation: "The University of Tokyo"
+  - family-names: Ishikura
+    given-names: Shigeru
+    affiliation: "Infomart Corporation"
+  - family-names: Usukura
+    given-names: Yukari
+    affiliation: "Infomart Corporation"
+  - family-names: Shigoku
+    given-names: Yuki
+    affiliation: "Infomart Corporation"
+  - family-names: Hayashi
+    given-names: Teruaki
+    affiliation: "The University of Tokyo"
+date-released: 2025-11-02
+url: "https://github.com/keith991001/KGsynX"
+preferred-citation:
+  type: conference-paper
+  title: "KGSynX: Knowledge Graph and Explainable Feedback Guided LLMs for Synthetic Tabular Data Generation"
+  authors:
+    - family-names: Yu
+      given-names: Ke
+    - family-names: Ishikura
+      given-names: Shigeru
+    - family-names: Usukura
+      given-names: Yukari
+    - family-names: Shigoku
+      given-names: Yuki
+    - family-names: Hayashi
+      given-names: Teruaki
+  collection-title: "ISWC 2025 Companion Volume"
+  volume: 4085
+  year: 2025
+  publisher:
+    name: "CEUR Workshop Proceedings"
+  url: "https://ceur-ws.org/Vol-4085/paper34.pdf"
