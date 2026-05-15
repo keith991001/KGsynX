@@ -19,8 +19,7 @@ KGSynX is a four-step pipeline:
 3. **SHAP Analysis & Prompt Feedback Loop** — Train classifiers on real and synthetic data, use SHAP to measure feature-importance gaps, translate these gaps into targeted prompt edits, and repeat until convergence.
 4. **Final Optimized Synthetic Data Generation** — Produce the final synthetic dataset matching the real data in both statistics and decision-logic semantics.
 
-<!-- 论文里的 Figure 1 截图，保存到 docs/framework.png 然后取消下一行注释 -->
-<!-- ![KGSynX Framework](docs/framework.png) -->
+![KGSynX Framework](docs/framework.png)
 
 ---
 
